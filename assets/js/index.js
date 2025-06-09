@@ -47,3 +47,43 @@ const cat = {
 for (let key in cat) {
   console.log(`${key}: ${cat[key]}`);
 }
+
+// 3
+
+function Book(author, bookName, publishYear, price) {
+  this.author = author;
+  this.bookName = bookName;
+  this.publishYear = publishYear;
+  this.publisher = {
+    city: '',
+    publisherName: '',
+  };
+  this.price = price;
+}
+
+const bookPrototype = {};
+bookPrototype.bookAge = function () {
+  const currentYear = new Date().getFullYear();
+  return currentYear - this.publishYear;
+};
+
+bookPrototype.newPrice = function (newPrice) {
+  this.price = newPrice;
+};
+
+Book.prototype = bookPrototype;
+
+const newBook = new Book(
+  'J.K. Rowling',
+  'Harry Potter and the Philosophers Stone',
+  1997,
+  180
+);
+newBook.publisher.city = 'London';
+newBook.publisher.publisherName = 'Minalima';
+
+console.log(newBook);
+
+console.log(`Age: ${newBook.bookAge()} years`);
+newBook.newPrice(100);
+console.log('Hew price: ', newBook.price);
