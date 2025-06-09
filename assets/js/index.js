@@ -1,3 +1,5 @@
+// 1
+
 const customer = {
   customerName: 'Amelia',
   surname: 'Johnson',
@@ -32,3 +34,16 @@ console.log(newCustomer);
 let copy = Object.assign({}, customer);
 copy.customerName = 'John';
 console.log(copy);
+
+// 2
+
+const cat = {
+  name: 'Murka',
+  color: 'black',
+  isMale: false,
+  isFurnitureDemage: true,
+};
+
+for (let key in cat) {
+  console.log(`${key}: ${cat[key]}`);
+}
