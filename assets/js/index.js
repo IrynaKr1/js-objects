@@ -28,7 +28,7 @@ delete customer.address;
 
 // Зробити копії об'єкту customer двома різними способами.
 
-let newCustomer = customer;
+const newCustomer = {...customer}; 
 console.log(newCustomer);
 
 let copy = Object.assign({}, customer);
